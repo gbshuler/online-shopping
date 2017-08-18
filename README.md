@@ -1,8 +1,9 @@
 # online-shopping
+https://github.com/gbshuler/online-shoppinghttps://github.com/gbshuler/online-shopping
 
-Two Projects
+Two Projects for Git Repository gbshuler/onlineshopping
  
-  * Front End (webapp project)
-  * Back End
+  * onlineshopping (webapp project)
+  * shoppingbackend (server side)
   
   
