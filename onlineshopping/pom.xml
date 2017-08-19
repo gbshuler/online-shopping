@@ -7,6 +7,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>onlineshopping Maven Webapp</name>
 	<url>http://maven.apache.org</url>
+
+	<!-- Version information will be stored here -->
 	<properties>
 		<javaee.version>7.0</javaee.version>
 		<spring.version>4.3.6.RELEASE</spring.version>
@@ -14,6 +16,7 @@
 	<dependencies>
 	
 		<!-- https://mvnrepository.com/artifact/javax/javaee-api -->
+		<!-- JAVA EE -->
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
@@ -39,8 +42,8 @@
 		
 	</dependencies>
 	<build>
+		<!-- Updated for the latest version of JAVA -->
 		<plugins>
-			<!-- Update to latest version JAVA -->
 			<!-- adding this should update the JRE of the project -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -51,6 +54,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+
 		<finalName>onlineshopping</finalName>
 	</build>
 </project>
