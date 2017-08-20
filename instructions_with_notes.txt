@@ -269,7 +269,10 @@ NOTE: - The name of the file will be the servlet_name-servlet.xml as per the con
    Console shows loading of Spring items
 ]
 Once the server is started go to this URL in Eclipse Web Browser
+onlineshopping is the servlet context
 http://localhost:8080/onlineshopping/
+or 
+http://localhost:8080/onlineshopping/host
 
 Log looks like this (notice pageController mappings!)
 Aug 19, 2017 3:58:26 PM org.apache.catalina.core.ApplicationContext log
@@ -301,7 +304,7 @@ Is this the problem (line from server.xml)
       <Context docBase="onlineshopping" path="/onlineshopping" reloadable="true" source="org.eclipse.jst.jee.server:onlineshopping"/></Host>
 
 4. Adding the jstl dependency.
-
+12:20
 
 TO BE CONTINUED in PART 02 - 04 - Understanding @RequestParam and @PathVariable
 
@@ -318,7 +321,7 @@ TO BE CONTINUED in PART 02 - 04 - Understanding @RequestParam and @PathVariable
 |-----------------------------------------------------------------
 | Part 02 - Building the user interface in webapp project
 |-----------------------------------------------------------------
-
+https://www.youtube.com/watch?v=IXg52Lg58m4&index=6&list=PLAXbOMavY3k1VJGqqhfqAn0tUSC14Qsvq
 |-----------------------------------------------------------------
 | 04 - Understanding @RequestParam and @PathVariable
 |-----------------------------------------------------------------
@@ -336,14 +339,30 @@ TO BE CONTINUED in PART 02 - 04 - Understanding @RequestParam and @PathVariable
  http://localhost:8080/onlineshopping/test/hello
  http://localhost:8080/onlineshopping/test/welcome
 
-
+ http://localhost:8080/onlineshopping/test?greeting=hi&key1=value1&key2=value2
+ 
+ query string begins with '?'
+ After adding a second method to our page controller for context "/test" we pass in the model data for {greeting}
+ 
+ For 
+ 	public ModelAndView test(@RequestParam("greeting")String greeting) {
+	use this URL
+ http://localhost:8080/onlineshopping/test?greeting=Welcome Test
+ Change RequestParam so url default can be display
+ http://localhost:8080/onlineshopping/test
+ 			public ModelAndView test(@RequestParam(value="greeting", required=false)String greeting) {
+		        if (greeting == null) {
+		        	greeting = "Hello There";
+		        }
+				
+@PathVariable  - allows you to NOT have to put in "query string"(spaces ok)
+ http://localhost:8080/onlineshopping/test/anything you want
+ /onlineshopping says - anything you want 
+ 
+	@RequestMapping(value = "/test/{greeting}") // model value is part of
+	public ModelAndView test(@PathVariable("greeting") String greeting) { // query
+	
 TO BE CONTINUED in PART 02 - 05 - Creating Landing Page and Loading Static Resources.
-
-
-
-
-
-
 
 
 
