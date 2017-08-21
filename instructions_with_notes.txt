@@ -387,18 +387,64 @@ TO BE CONTINUED in PART 02 - 05 - Creating Landing Page and Loading Static Resou
  ------webapp
  --------assets
 
+ http://getbootstrap.com/docs/3.3/getting-started/#download
 2. Get the bootstrap js, css and fonts files. Also create the directory for images and place it inside the assets directory created in above step.
+2:00
 
+
+2:12
 3. Search for unstyled bootstrap starter template.
+He chose the Shopping template
+https://startbootstrap.com/template-overviews/shop-homepage/
 
 4. Bootstrap javascript code is dependent on jquery so we will copy that also.
 
+Great spot to grab the jQuery that matches your project.
+! When you use a bootstrap template:
+	! Open the demo.  Right click and view source.  
+He found jQuery at this web page:  jQuery.js 1.11.1
+https://blackrockdigital.github.io/startbootstrap-shop-homepage/
+View Source,
+4:02 CSS file.
+copy
+startbootstrap-shop-homepage-3.3.7\css\shop-homepage.css
+to 
+ --src
+ ----main
+ ------resources
+ ------webapp
+ --------assets
+            css/myapp.css
+
+Replace the content of page.jsp with the bootstrap index.html
+Copy
+startbootstrap-shop-homepage-3.3.7\index.html
+to
+page.jsp (replace contents)
+
+6:00
 5. In the dispatcher-servlet.xml file we have to add the mvc namespace.
 
-6. Configure it to load the static resources.
+6. Configure it (your dispatcher) to load the static resources.
 
 7. Add the spring url tag library.
+9:00 Add these lines to page.jsp
+<spring:url var="css" value="/resources/css" />
+<spring:url var="js" value="/resources/js" />
+<spring:url var="images" value="/resources/images" />
 
+!WTF?  The css files are located in the project tree at
+ --src
+ ----main
+ ------resources
+ ------webapp
+ --------assets
+            css/myapp.css webapp/assets/css
+			
+Mapping?
+
+File myapp.css isnt under "/resources".  It is under
+			
 8. Create three variables name css, js and images using spring:url element.
 
 9. Replace the css, js and images path with the variable name created above.
@@ -429,7 +475,7 @@ TO BE CONTINUED in PART 02 - 06 - Creating Master Page
 |-----------------------------------------------------------------
 
 |-----------------------------------------------------------------
-| 06 - Creating Master Page
+| 06 - Creating Master Page (Contents added dynamically)
 |-----------------------------------------------------------------
 1. Identify the different sections of the page. i.e. the navigation bar, the main section and the footer section.
 
@@ -437,7 +483,16 @@ TO BE CONTINUED in PART 02 - 06 - Creating Master Page
 
 3. Include the files that we have separated out in the page.jsp
 
+5:38
 4. Now we will be adding the title and also make sure that the main content is only loaded when the user clicks on home by adding two objects in the model.
+
+9:18 
+We will reference the ${contextRoot} variable we put in the main page earlier (page.jsp)
+${contextRoot} will be a prefix for many links throughout our JSP file tree
+<c:set var="contextRoot" value="${pageContext.request.contextPath}" />
+
+by placing it in the  newbar
+<a class="navbar-brand" href="${contextRoot}/home">Online Shopping</a>
 
 5. Modify the navigation bar to include the contact and about us page 
 
