@@ -522,9 +522,13 @@ TO BE CONTINUED in PART 02 - 07 - Solving Active Menu Problem using jQuery
 |-----------------------------------------------------------------
 | 07 - Solving Active Menu Problem using jQuery
 |-----------------------------------------------------------------
-
+[ This "active menu problem" refers to a bit of tackyneww.. 
+  when you go to the About Page, the "About" link at the top should change its style 
+  (as a visual cue to the user where they are in the sire navigation)
+   This will require some JavaScript!
+  ]
 1. Let us add the id to the list of elements in the navbar.jsp
-
+01:50
 2. Add a small script element in the head section and create a new property with the name of menu in the window global object.
 
 3. Create a myapp.js file in the js directory created earlier and add a script element at the end.

@@ -23,9 +23,13 @@
 
     <title>Online Shopping - ${title}</title>
 
+    <script>
+        window.menu = '${title}'; // get from pagecontroller
+    </script>
+
     <!-- Bootstrap Core CSS -->
     <link href="${css}/bootstrap.min.css" rel="stylesheet">
-
+    
     <!-- Custom CSS -->
     <link href="${css}/myapp.css" rel="stylesheet">
 
@@ -61,13 +65,14 @@
     <!--  Footer comes here -->
     <%@include file="./shared/footer.jsp" %>
 
-
     <!-- jQuery -->
     <script src="${js}/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="${js}/bootstrap.min.js"></script>
-
+    
+    <!--  self coded JavaScript !must be put after loading JS library files. -->
+    <script src="${js}/myapp.js"></script>
 </body>
 
 </html>
