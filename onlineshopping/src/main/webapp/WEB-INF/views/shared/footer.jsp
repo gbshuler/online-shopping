@@ -1,5 +1,5 @@
     <!-- footer.jsp -->
-    <div class="container">
+    <div class="container footer">
 
         <hr>
 
@@ -7,7 +7,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>Copyright &copy; Bradazon 2017 15:25</p>
                 </div>
             </div>
         </footer>

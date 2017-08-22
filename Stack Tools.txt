@@ -1,0 +1,13 @@
+20170822 onlineshopping project
+
+STACK
+------------------------------------------
+jQuery
+Eclipse Mars
+Git
+Bootstrap
+Tomcat 8.0
+JSP
+Maven
+
+bootswatch.com (theme)
