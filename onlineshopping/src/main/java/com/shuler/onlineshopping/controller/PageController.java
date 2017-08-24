@@ -1,12 +1,18 @@
 package com.shuler.onlineshopping.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.shuler.shoppingbackend.dao.CategoryDAO;
+
 // This is a "helper controller" - for request mapping
 @Controller
 public class PageController {
+	@Autowired
+	private CategoryDAO categoryDAO;
+	
 	// Specify URLs
 	@RequestMapping(value = { "/", "/home", "/index" })
 	// Spring MVC class with Model and View
@@ -14,6 +20,9 @@ public class PageController {
 		// !!! This binds this method to page.jsp
 		ModelAndView mv = new ModelAndView("page"); // No model for this
 													// constructor signature
+		
+		mv.addObject("categories", categoryDAO.list());
+		
 		// Now we create the model!
 		// Add an attribute to the model. "greeting" will be bound to the view
 		// ({greeting} JSP

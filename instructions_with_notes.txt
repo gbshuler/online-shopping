@@ -646,16 +646,30 @@ TO BE CONTINUED in PART 03 - 02 - Linking Backend Project with UI.
 | 02 - Linking Backend Project with UI
 |-----------------------------------------------------------------
 
+00:40
+[ open front-end POM and refer to back-end POM]
 1. Add the backend dependency to the frontend project.
 
+[@Autowired -> Tell Spring to manage the instance CategoryDAO in PageController.
+   @Autowired
+   List<Category> categories = new ArrayList<>();
+   
 2. We are going to use the dependency injection feature of Spring framework and 'Autowired' the class which implements DAO interface.
-
+[ 03:00]
 3. Add the @Repository annotation. The @Repository annotation is a marker for class specifying that it fulfills the role of providing access to the data and will be managed by spring framework.
+   @Repository  
+   public class CategoryDAOImpl ...
 
 Error - Repository cannot be resolved
 
 Solution - We will add the spring context dependency in the backend project as well
 
+07:00
+  <c:forEach items="${categories}" var="category">
+      <a href="#" class="list-group-item">${category.name}</a>
+  </c:forEach>
+  ? Where does category name come from?
+  
 4. Modify the user interface to access the category in the sidebar. 
 
 5. Error - org.springframework.beans.factory.UnsatisfiedDependencyException

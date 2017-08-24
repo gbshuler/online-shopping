@@ -24,4 +24,5 @@ hs_err_pid*
 #Don't put files from build in GiT!
 /onlineshopping/target/
 /shoppingbackend/target/
+/onlineshopping/target/scratch.txt
 

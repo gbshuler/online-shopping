@@ -9,5 +9,10 @@ Bootstrap
 Tomcat 8.0
 JSP
 Maven
+Spring Context
+Spring MVC
+Bootstrap 3
+JSTL (c:forEach for example)
+bootswatch.com (themes)  We chose "Readable"
+AngularJS
 
-bootswatch.com (theme)
