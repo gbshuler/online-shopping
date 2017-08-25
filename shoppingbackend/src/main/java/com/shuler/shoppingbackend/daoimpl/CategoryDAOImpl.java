@@ -32,16 +32,29 @@ public class CategoryDAOImpl implements CategoryDAO {
         
         category = new Category();
 		category.setId(2);
-        category.setName("Blackberry 410");
+        category.setName("Blackberry_410");
         category.setDescription("Built in keyboard!");
         category.setImageURL("CAT_2.png");
         categories.add(category);
-        
         category = new Category();
 		category.setId(3);
-        category.setName("MacBook Pro 15 w/Retina");
-        category.setDescription("Solid Aluminium ingot");
+        category.setName("Tesla_S");
+        category.setDescription("Tesla Model S");
         category.setImageURL("CAT_3.png");
+        categories.add(category);
+        
+        category = new Category();
+		category.setId(4);
+        category.setName("MacBook_Pro_15_wRetina");
+        category.setDescription("Solid Aluminium ingot");
+        category.setImageURL("CAT_4.png");
+        categories.add(category);
+        
+        category = new Category();
+		category.setId(5);
+        category.setName("Charcoal");
+        category.setDescription("One bag of charcoal");
+        category.setImageURL("CAT_5.png");
         categories.add(category);
     }
 	
