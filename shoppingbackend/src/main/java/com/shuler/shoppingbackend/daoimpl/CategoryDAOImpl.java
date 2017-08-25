@@ -50,4 +50,14 @@ public class CategoryDAOImpl implements CategoryDAO {
 		return categories;
 	}
 
+	@Override
+	public Category getId(int id) {
+		for (Category category: categories) {
+			if (category.getId() == id) {
+				return category;
+			}
+		}
+		return null;  // todo handle
+	}
+
 }

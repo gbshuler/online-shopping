@@ -51,7 +51,7 @@
 		<%@include file="./shared/navbar.jsp"%>
 
 		<!--  Page Content -->
-		
+
 		<div class="content">
 			<!--  userClickHome comes from the Controller as a clue to what is going on -->
 			<!--  User clicked Home -->
@@ -71,11 +71,12 @@
 
 								<div class="list-group">
 									<c:forEach items="${categories}" var="category">
-										<a href="#" class="list-group-item">${category.name}</a>
+										<a href="${contextRoot}/show/category/${category.id}/products"
+											class="list-group-item">${category.name}</a>
 									</c:forEach>
 								</div>
+								<!--  END shared/sidebar.jsp -->
 							</div>
-							<!--  END shared/sidebar.jsp -->
 						</div>
 
 						<div class="col-md-9">
@@ -262,7 +263,6 @@
 						</div>
 
 					</div>
-
 				</div>
 				<!-- /.container -->
 
@@ -274,6 +274,61 @@
 			</c:if>
 			<c:if test="${userClickContact == true }">
 				<%@include file="contact.jsp"%>
+			</c:if>
+			<!--  check what button user pressed from model -->
+			<c:if
+				test="${userClickAllProducts == true or userClickCategoryProducts == true }">
+				<!--  BEGIN listProducts.jsp -->
+
+				<div class="container">
+					<div class="row">
+						<!--  Display sidebar -->
+						<div class="col-md-3">
+							<!-- Bootstrap grid will get 3/12 of width or 25% -->
+
+							<!-- Include our sidebar -->
+							<!--  BEGIN shared/sidebar.jsp -->
+							<p class="lead">Shop Name</p>
+							<div class="list-group">
+								<c:forEach items="${categories}" var="category">
+									<a href="${contextRoot}/show/category/${category.id}/products"
+										class="list-group-item">${category.name}</a>
+								</c:forEach>
+							</div>
+							<!--  END shared/sidebar.jsp -->
+
+
+						</div>
+						<!--  display the actual products -->
+						<div class="col-md-9">
+
+							<!-- Add Breadcrumb component-->
+							<!-- Bootstrap grid will get 9/12 of width or 75% -->
+							<div class="row">
+								<div class="col-lg-12">
+									<c:if test="${userClickAllProducts == true}">
+										<ol class="breadcrumb">
+											<li><a href="${contextRoot}/home">Home</a></li>
+											<li class="active">All Products</li>
+										</ol>
+									</c:if>
+									<c:if test="${userClickCategoryProducts == true}">
+										<ol class="breadcrumb">
+
+											<li><a href="${contextRoot}/home">Home</a></li>
+											<li class="active">Category</li>
+											<li class="active">${category.name}</li>
+
+										</ol>
+									</c:if>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<!--  END listProducts.jsp -->
+
 			</c:if>
 		</div>
 		<!--  Footer comes here -->
