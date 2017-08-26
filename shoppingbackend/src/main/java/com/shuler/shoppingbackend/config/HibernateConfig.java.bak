@@ -40,21 +40,16 @@ public class HibernateConfig {
 		return dataSource;	
 	}
 	
-	// sessionFactory bean will be available
-	
+	// sessionFactory bean 
 	@Bean
 	public SessionFactory getSessionFactory(DataSource dataSource) {
 		
 		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource);
 		
 		builder.addProperties(getHibernateProperties());
-		builder.scanPackages("com.shuler.shoppingbackend.dto");
-		
 		return builder.buildSessionFactory();
 		
 	}
-
-	
 	
 	// All the hibernate properties will be returned in this method	
 	private Properties getHibernateProperties() {
@@ -73,7 +68,5 @@ public class HibernateConfig {
 	public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory) {
 		HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionFactory);
 		return transactionManager;
-	}
-	
-	
+	}	
 }

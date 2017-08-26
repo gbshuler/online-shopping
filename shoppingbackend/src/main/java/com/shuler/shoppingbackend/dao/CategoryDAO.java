@@ -5,8 +5,9 @@ import java.util.List;
 import com.shuler.shoppingbackend.dto.Category;
 
 public interface CategoryDAO {
-   List<Category> list();
 
-Category getId(int id);
+	boolean add(Category category);
 
+	List<Category> list();
+	Category get(int id);
 }
