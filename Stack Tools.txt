@@ -4,7 +4,7 @@ FRONT END
 --------------------------------------------
 Spring MVC
 JSP
-iQuery
+jQuery
 JSTL
 bootswatch.com (themes)  We chose "Readable" theme to skin our bootstrap project
 Bootstrap 3 [https://blackrockdigital.github.io/startbootstrap-shop-homepage/]
