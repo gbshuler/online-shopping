@@ -1,18 +1,32 @@
-20170822 onlineshopping project
+Stack for onlineshopping project
 
-STACK
-------------------------------------------
-jQuery
-Eclipse Mars
-Git
-Bootstrap
-Tomcat 8.0
-JSP
-Maven
-Spring Context
+FRONT END
+--------------------------------------------
 Spring MVC
-Bootstrap 3
-JSTL (c:forEach for example)
-bootswatch.com (themes)  We chose "Readable"
-AngularJS
+JSP
+iQuery
+JSTL
+bootswatch.com (themes)  We chose "Readable" theme to skin our bootstrap project
+Bootstrap 3 [https://blackrockdigital.github.io/startbootstrap-shop-homepage/]
 
+BACK END SOFTWARE LIBRARIES
+--------------------------------------------
+Hibernate 5.2.7 [org.hibernate] ORM/JPA Database Tool
+Spring ORM [org.springframework] Transaction Management - Hibernate Friendly
+
+BACK END SERVERS
+--------------------------------------------
+Tomcat 8.0.45 Web Server
+H2 1.4.193 [com.h2database] SQL Database
+
+DEVELOPMENT TOOLS
+--------------------------------------------
+Eclipse Mars IDE
+Maven [org.apache] 3.5 (POM resource: https://mvnrepository.com )
+Git/GitHub Source Repository
+
+PLACE HOLDER
+--------------------------------------------
+AngularJS
+PostMan
+JUnit4
