@@ -6,8 +6,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ * Hibernate note
+ * The name of the entity is "Category"  by default.  
+ * We could have changed that with annotation: 
+ * Entity(name="categoryNameForJPA") 
+ * If the table name is not category we could specify annotation: 
+ * Table(name="CAT_TABLE") 
+ * At signs left off so we don't hit these with reflection 
+ */
 @Entity
-public class Category {
+public class Category {  
 
 	@Override
 	public String toString() {
