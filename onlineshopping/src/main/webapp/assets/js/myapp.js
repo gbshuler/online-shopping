@@ -11,6 +11,7 @@ $(function() {
 		$('#listProducts').addClass('active');
 		break;	
 	default:
+		if(window.menu == "Home") break;
 		$('#listProducts').addClass('active');	
 		$('#a_' + menu).addClass('active');  // highlights product in sidebar.jsp
 		break;

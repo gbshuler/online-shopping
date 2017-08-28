@@ -48,13 +48,11 @@ public class HibernateConfig {
 		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource);
 		
 		builder.addProperties(getHibernateProperties());
-		builder.scanPackages("com.shuler.shoppingbackend.dto");
-		
+	    builder.scanPackages("com.shuler.shoppingbackend.dto");
+   		
 		return builder.buildSessionFactory();
 		
 	}
-
-	
 	
 	// All the hibernate properties will be returned in this method	
 	private Properties getHibernateProperties() {
