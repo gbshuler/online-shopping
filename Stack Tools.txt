@@ -12,7 +12,9 @@ Bootstrap 3 [https://blackrockdigital.github.io/startbootstrap-shop-homepage/]
 BACK END SOFTWARE LIBRARIES
 --------------------------------------------
 Hibernate 5.2.7 [org.hibernate] ORM/JPA Database Tool
-Spring ORM [org.springframework] Transaction Management - Hibernate Friendly
+Spring ORM 4.3.6 [org.springframework] Transaction Management - Hibernate Friendly
+FasterXML/Jackson 2.8.7 (Turns non JSON return types into JSON and vice versa
+Apache Commons pooling, logging
 
 BACK END SERVERS
 --------------------------------------------
@@ -24,9 +26,10 @@ DEVELOPMENT TOOLS
 Eclipse Mars IDE
 Maven [org.apache] 3.5 (POM resource: https://mvnrepository.com )
 Git/GitHub Source Repository
+Postman 5 (REST Testing Tool)
+
 
 PLACE HOLDER
 --------------------------------------------
 AngularJS
-PostMan
 JUnit4

@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Product {
 
@@ -18,21 +20,25 @@ public class Product {
 	private String code;
 	private String name;
 	private String brand;
+	@JsonIgnore
 	private String description;
 	@Column(name = "unit_price")
 	private double unitPrice;
 	private int quantity;
 	@Column(name = "is_active")
+	@JsonIgnore
 	private boolean active;
 	@Column(name = "category_id")
+	@JsonIgnore
 	private int categoryId;
 	@Column(name = "supplier_id")
+	@JsonIgnore
 	private int supplierId;
 	private int purchases;
 	private int views;
 	
 	public Product() {
-		// Voodoo code to generate a randum ID number
+		// Voodoo code to generate a random ID number
 		this.code = "PRD" + UUID.randomUUID().toString().substring(26).toUpperCase();
 	}
 	
