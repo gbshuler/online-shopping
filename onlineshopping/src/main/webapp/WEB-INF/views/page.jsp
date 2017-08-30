@@ -8,7 +8,7 @@
 <spring:url var="css" value="/resources/css" />
 <spring:url var="js" value="/resources/js" />
 <spring:url var="images" value="/resources/images" />
-
+<!-- if your URL is 'www.foo.com/MyCoolApp/index.jsp then the "contextPath" is'MyCoolApp' -->
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="en">
@@ -25,12 +25,16 @@
 
 <script>
 	window.menu = '${title}'; // get from pagecontroller - push down to JS
+	window.contextRoot = '${contextRoot}'; // push the context path we got with JSTL above down into JS
 </script>
 
 <!-- Bootstrap Core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 <!--  Bootswatch readable theme  -->
 <link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
+
+<!--  Bootswatch jQuery DataTable theme  -->
+<link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
 
 <!-- Custom CSS -->
 <link href="${css}/myapp.css" rel="stylesheet">
@@ -279,56 +283,78 @@
 			<c:if
 				test="${userClickAllProducts == true or userClickCategoryProducts == true }">
 				<!--  BEGIN listProducts.jsp -->
-
 				<div class="container">
 					<div class="row">
-						<!--  Display sidebar -->
+						<!-- Would be to display sidebar -->
 						<div class="col-md-3">
-							<!-- Bootstrap grid will get 3/12 of width or 25% -->
-
-							<!-- Include our sidebar -->
 							<!--  BEGIN shared/sidebar.jsp -->
 							<p class="lead">Shop Name</p>
 							<div class="list-group">
 								<c:forEach items="${categories}" var="category">
 									<a href="${contextRoot}/show/category/${category.id}/products"
-											class="list-group-item" id="a_${category.name}">${category.name}</a>
+										class="list-group-item" id="a_${category.name}">${category.name}</a>
 								</c:forEach>
 							</div>
 							<!--  END shared/sidebar.jsp -->
-
-
 						</div>
-						<!--  display the actual products -->
-						<div class="col-md-9">
-
-							<!-- Add Breadcrumb component-->
-							<!-- Bootstrap grid will get 9/12 of width or 75% -->
+						<!-- to display the actual products -->
+						<div class="col-md-9">			
+							<!-- Added breadcrumb component -->
 							<div class="row">
 								<div class="col-lg-12">
 									<c:if test="${userClickAllProducts == true}">
+										<script>
+											window.categoryId = '';
+										</script>
 										<ol class="breadcrumb">
 											<li><a href="${contextRoot}/home">Home</a></li>
 											<li class="active">All Products</li>
 										</ol>
 									</c:if>
 									<c:if test="${userClickCategoryProducts == true}">
-										<ol class="breadcrumb">
+										<script>
+											window.categoryId = '${category.id}';
+										</script>
 
+										<ol class="breadcrumb">
 											<li><a href="${contextRoot}/home">Home</a></li>
 											<li class="active">Category</li>
 											<li class="active">${category.name}</li>
-
 										</ol>
 									</c:if>
 								</div>
 							</div>
+							<div class="row">
+								<div class="col-xs-12">
+									<div class="container-fluid">
+										<div class="table-responsive">
+											<table id="productListTable"
+												class="table table-striped table-borderd">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Brand</th>
+														<th>Price</th>
+														<th>Qty. Available</th>
+													</tr>
+												</thead>
+												<tfoot>
+													<tr>
+														<th>Name</th>
+														<th>Brand</th>
+														<th>Price</th>
+														<th>Qty. Available</th>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
-
 					</div>
 				</div>
 				<!--  END listProducts.jsp -->
-
 			</c:if>
 		</div>
 		<!--  Footer comes here -->
@@ -339,6 +365,12 @@
 
 		<!-- Bootstrap Core JavaScript -->
 		<script src="${js}/bootstrap.min.js"></script>
+
+		<!--  DataTable Plugin -->
+		<script src="${js}/jquery.dataTables.js"></script>
+
+		<!--  Bootstrap DataTable Plugin -->
+		<script src="${js}/dataTables.bootstrap.js"></script>
 
 		<!--  self coded JavaScript !must be put after loading JS library files. -->
 		<script src="${js}/myapp.js"></script>

@@ -5,9 +5,11 @@ FRONT END
 Spring MVC
 JSP
 jQuery
+jQuery DataTables 1.10.15
 JSTL
 bootswatch.com (themes)  We chose "Readable" theme to skin our bootstrap project
 Bootstrap 3 [https://blackrockdigital.github.io/startbootstrap-shop-homepage/]
+ajax
 
 BACK END SOFTWARE LIBRARIES
 --------------------------------------------
