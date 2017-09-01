@@ -77,3 +77,8 @@ footer {
 	height: 60px;
 }
 
+/* Force our large 640x480 images to render smaller. */
+.dataTableImg {
+	width: 160px;
+	height: 100px;
+}

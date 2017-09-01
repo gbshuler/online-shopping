@@ -67,7 +67,7 @@ CREATE TABLE cart (
 
 -- adding three categories
 INSERT INTO category (name, description,image_url,is_active) VALUES ('Laptop', 'This is description for Laptop category!', 'CAT_1.png', true);
-INSERT INTO category (name, description,image_url,is_active) VALUES ('Television', 'This is description for Television category!', 'CAT_2.png', true);
+INSERT INTO category (name, description,image_url,is_active) VALUES ('Desktop', 'Desktop Description', 'CAT_2.png', true);
 INSERT INTO category (name, description,image_url,is_active) VALUES ('Mobile', 'This is description for Mobile category!', 'CAT_3.png', true);
 -- adding three users 
 INSERT INTO user_detail 
@@ -84,18 +84,23 @@ INSERT INTO address( user_id, address_line_one, address_line_two, city, state, c
 VALUES (2, '287 Pin Head Pike', 'Suite 110', 'Buffalo', 'New York', 'US', '17933', true, false );
 -- adding five products
 INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
-VALUES ('PRDABC123DEFX', 'iPhone 8s', 'Apple', 'With iFace recognition and augmented reality', 900, 5, true, 3, 2, 0, 0 );
+VALUES ('iPhone-8-Plus', 'iPhone 8 Plus', 'Apple', 'With iFace recognition and augmented reality', 1090, 5, true, 3, 2, 0, 0 );
 INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
-VALUES ('PRDDEF123DEFX', 'Samsung S8', 'Samsung', 'A smartphone by Samsung', 720, 2, true, 3, 3, 0, 0 );
+VALUES ('AirBook', 'Mac Air 13', 'Apple', 'The lightest laptop from Apple', 1020, 2, true, 1, 3, 0, 0 );
 INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
-VALUES ('PRDDE0AC453FC', 'Samsung S7', 'Samsung', 'A smartphone by Samsung', 320, 7, false, 3, 3, 0, 0 );
+VALUES ('Apple][', 'Apple ][', 'Apple', '1981 Computer of the Year', 320, 7, true, 2, 3, 0, 0 );
 INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
-VALUES ('PRDPQR123WGTX', 'Google Pixel+', 'Google', 'This is one of the best Android smartphones available in the market right now!', 570, 5, true, 3, 2, 0, 0 );
+VALUES ('newton', 'Newton', 'Apple', 'Say Hi to Newton', 570, 5, true, 3, 2, 0, 0 );
 INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
-VALUES ('PRDMNO123PQRX', ' Macbook Pro 15 Retina', 'Apple', 'This laptop is very powerful.', 640, 3, true, 1, 2, 0, 0 );
+VALUES ('Mac_Cube', 'Power Mac G4 Cube', 'Apple', 'Looks awesome.  No moving parts', 1300, 3, true, 1, 2, 0, 0 );
 INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
-VALUES ('PRDABCXYZDEFX', 'Dell Latitude E6510', 'Dell', 'A great laptop for students', 480, 5, true, 1, 3, 0, 0 );
-
+VALUES ('ibook_trio', 'iBook', 'Apple', 'Steve Jobs first product in Life 2', 480, 5, true, 1, 3, 0, 0 );
+INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
+VALUES ('Apple3', 'Apple III', 'Apple', 'The Apple III desktop', 880, 2, true, 1, 3, 0, 0 );
+INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
+VALUES ('apple-lisa-1985-9995', 'The Lisa', 'Apple', 'A professional system', 1999, 5, true, 1, 3, 0, 0 );
+INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
+VALUES ('apple-watch-2', 'Apple Watch', 'Apple', 'Wear it.  Live it Apple Watch', 499, 5, true, 3, 3, 0, 0 );
 
 -- the cart line table to store the cart details
 
