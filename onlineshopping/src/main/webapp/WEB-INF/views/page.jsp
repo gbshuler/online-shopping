@@ -362,6 +362,10 @@
 				</div>
 				<!--  END listProducts.jsp -->
 			</c:if>
+			<c:if test="${userClickShowProduct == true}">
+				<%@include file="singleProduct.jsp"%>
+			</c:if>
+
 		</div>
 		<!--  Footer comes here -->
 		<%@include file="./shared/footer.jsp"%>

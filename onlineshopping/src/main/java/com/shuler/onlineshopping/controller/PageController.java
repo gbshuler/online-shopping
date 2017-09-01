@@ -7,14 +7,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.shuler.shoppingbackend.dao.CategoryDAO;
+import com.shuler.shoppingbackend.dao.ProductDAO;
 import com.shuler.shoppingbackend.dto.Category;
+import com.shuler.shoppingbackend.dto.Product;
 
 // This is a "helper controller" - for request mapping
 @Controller
 public class PageController {
 	@Autowired
 	private CategoryDAO categoryDAO;
-
+	@Autowired
+	private ProductDAO productDAO;
+	
 	// Specify URLs
 	@RequestMapping(value = { "/", "/home", "/index" })
 	// Spring MVC class with Model and View
@@ -107,5 +111,24 @@ public class PageController {
 		return mv;				
 	}	
 	
-
+	@RequestMapping(value = "/show/{id}/product")
+	public ModelAndView showSingleProduct(@PathVariable("id") int id) {		
+		ModelAndView mv = new ModelAndView("page");
+		
+		// productDAO to fetch a single category
+		Product product = null;
+		
+		product = productDAO.get(id);
+		
+		// Update the view count
+		product.setViews(product.getViews() + 1);  // views	is an attribute for a product
+		productDAO.update(product);
+		
+		mv.addObject("title", product.getName());	
+		// passing the single product object
+		mv.addObject("product", product);
+		
+		mv.addObject("userClickShowProduct",true);
+		return mv;				
+	}
 }

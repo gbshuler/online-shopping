@@ -84,7 +84,7 @@ $(function() {
 							{
 								data : 'unitPrice',
 								mRender : function(data, type, row) {
-									return '$' + data
+									return '$' + data;
 								}
 							},
 							{
