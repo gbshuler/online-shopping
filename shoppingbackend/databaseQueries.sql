@@ -92,13 +92,13 @@ VALUES ('Apple][', 'Apple ][', 'Apple', '1981 Computer of the Year', 320, 7, tru
 INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
 VALUES ('newton', 'Newton', 'Apple', 'Say Hi to Newton', 570, 5, true, 3, 2, 0, 0 );
 INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
-VALUES ('Mac_Cube', 'Power Mac G4 Cube', 'Apple', 'Looks awesome.  No moving parts', 1300, 3, true, 1, 2, 0, 0 );
+VALUES ('Mac_Cube', 'Power Mac G4 Cube', 'Apple', 'Looks awesome.  No moving parts', 1300, 3, true, 2, 2, 0, 0 );
 INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
 VALUES ('ibook_trio', 'iBook', 'Apple', 'Steve Jobs first product in Life 2', 480, 5, true, 1, 3, 0, 0 );
 INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
-VALUES ('Apple3', 'Apple III', 'Apple', 'The Apple III desktop', 880, 2, true, 1, 3, 0, 0 );
+VALUES ('Apple3', 'Apple III', 'Apple', 'The Apple III desktop', 880, 2, true, 2, 3, 0, 0 );
 INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
-VALUES ('apple-lisa-1985-9995', 'The Lisa', 'Apple', 'A professional system', 1999, 5, true, 1, 3, 0, 0 );
+VALUES ('apple-lisa-1985-9995', 'The Lisa', 'Apple', 'A professional system', 1999, 5, true, 2, 3, 0, 0 );
 INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
 VALUES ('apple-watch-2', 'Apple Watch', 'Apple', 'Wear it.  Live it Apple Watch', 499, 5, true, 3, 3, 0, 0 );
 

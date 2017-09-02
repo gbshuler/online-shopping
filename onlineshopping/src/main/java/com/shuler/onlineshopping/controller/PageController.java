@@ -1,5 +1,7 @@
 package com.shuler.onlineshopping.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,7 +20,7 @@ public class PageController {
 	private CategoryDAO categoryDAO;
 	@Autowired
 	private ProductDAO productDAO;
-	
+
 	// Specify URLs
 	@RequestMapping(value = { "/", "/home", "/index" })
 	// Spring MVC class with Model and View
@@ -101,8 +103,9 @@ public class PageController {
 		
 		mv.addObject("title",category.getName());
 		
+		List<Category> theList = categoryDAO.list();
 		//passing the list of categories
-		mv.addObject("categories", categoryDAO.list());
+		mv.addObject("categories", theList);
 		
 		// passing the single category object
 		mv.addObject("category", category);
@@ -117,7 +120,7 @@ public class PageController {
 		
 		// productDAO to fetch a single category
 		Product product = null;
-		
+
 		product = productDAO.get(id);
 		
 		// Update the view count
