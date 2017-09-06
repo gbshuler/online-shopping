@@ -11,6 +11,7 @@
     http://www.springframework.org/schema/mvc/spring-mvc.xsd
     ">
 	<context:component-scan base-package="com.shuler.onlineshopping"/>
+	<!-- Spring scanning shoppingbackend is automatic.  This is here for clarity. -->
 	<context:component-scan base-package="com.shuler.shoppingbackend"/>
 	<!-- Specify type of view we are using in page controller.
 	 Specify a "viewResolver" bean -->

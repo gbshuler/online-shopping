@@ -13,6 +13,8 @@ import com.shuler.shoppingbackend.dao.ProductDAO;
 import com.shuler.shoppingbackend.dto.Category;
 import com.shuler.shoppingbackend.dto.Product;
 
+import com.shuler.onlineshopping.exception.ProductNotFoundException;
+
 // This is a "helper controller" - for request mapping
 @Controller
 public class PageController {
@@ -115,13 +117,15 @@ public class PageController {
 	}	
 	
 	@RequestMapping(value = "/show/{id}/product")
-	public ModelAndView showSingleProduct(@PathVariable("id") int id) {		
+	public ModelAndView showSingleProduct(@PathVariable("id") int id) throws ProductNotFoundException {		
 		ModelAndView mv = new ModelAndView("page");
 		
 		// productDAO to fetch a single category
 		Product product = null;
 
 		product = productDAO.get(id);
+		
+		if (product == null) throw new ProductNotFoundException();
 		
 		// Update the view count
 		product.setViews(product.getViews() + 1);  // views	is an attribute for a product

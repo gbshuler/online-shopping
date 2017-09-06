@@ -69,6 +69,8 @@ CREATE TABLE cart (
 INSERT INTO category (name, description,image_url,is_active) VALUES ('Laptop', 'This is description for Laptop category!', 'CAT_1.png', true);
 INSERT INTO category (name, description,image_url,is_active) VALUES ('Desktop', 'Desktop Description', 'CAT_2.png', true);
 INSERT INTO category (name, description,image_url,is_active) VALUES ('Mobile', 'This is description for Mobile category!', 'CAT_3.png', true);
+INSERT INTO category (name, description,image_url,is_active) VALUES ('Speakers', 'This is description for Bluetooth Speakers category!', 'CAT_3.png', true);
+
 -- adding three users 
 INSERT INTO user_detail 
 (first_name, last_name, role, enabled, password, email, contact_number) 
@@ -84,7 +86,7 @@ INSERT INTO address( user_id, address_line_one, address_line_two, city, state, c
 VALUES (2, '287 Pin Head Pike', 'Suite 110', 'Buffalo', 'New York', 'US', '17933', true, false );
 -- adding five products
 INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
-VALUES ('iPhone-8-Plus', 'iPhone 8 Plus', 'Apple', 'With iFace recognition and augmented reality', 1090, 5, true, 3, 2, 0, 0 );
+VALUES ('iPhone-8-Plus', 'iPhone 8 Plus', 'Apple', 'With iFace recognition and augmented reality', 1090, 0, true, 3, 2, 0, 0 );
 INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
 VALUES ('AirBook', 'Mac Air 13', 'Apple', 'The lightest laptop from Apple', 1020, 2, true, 1, 3, 0, 0 );
 INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
@@ -101,7 +103,18 @@ INSERT INTO product (code, name, brand, description, unit_price, quantity, is_ac
 VALUES ('apple-lisa-1985-9995', 'The Lisa', 'Apple', 'A professional system', 1999, 5, true, 2, 3, 0, 0 );
 INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
 VALUES ('apple-watch-2', 'Apple Watch', 'Apple', 'Wear it.  Live it Apple Watch', 499, 5, true, 3, 3, 0, 0 );
-
+INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
+VALUES ('PixelPhone', 'Google', 'Pixel Phone by Google', 649, 1, true, 3, 3, 0, 0 );
+INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
+VALUES ('BeatsPill', 'Beats Pill', 'Dr. Dre', 'The Beats Pill bluetooth speaker with built-in battery.', 349, 11, true, 4, 3, 0, 0 );
+INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
+VALUES ('SoundLink', 'Sound Link', 'Bose', 'The Bose miniature bluetooth speaker with built-in battery.', 449, 3, true, 4, 3, 0, 0 );
+INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
+VALUES ('MonsterSpeaker', 'SuperStar BackFloat', 'Monster', 'Monster® SuperStar BackFloat High Definition Bluetooth® Speaker.', 749, 6, true, 4, 3, 0, 0 );
+INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
+VALUES ('UEBoom', 'UE Boom','Ultimate Ears', 'UE Boom by Ultimate Ears for iOS.', 199, 0, true, 4, 3, 0, 0 );
+INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
+VALUES ('Zeppellin', 'Zepellin Wireless', 'Bowers & Wilkins', 'Zeppelin Wireless merges state-of-the-art technology with seamless wireless connectivity', 1049, 2, true, 4, 3, 0, 0 );
 -- the cart line table to store the cart details
 
 CREATE TABLE cart_line (
