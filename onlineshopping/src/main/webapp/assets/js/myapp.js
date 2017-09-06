@@ -1,7 +1,7 @@
 $(function() {
 	// solving the active menu problem
 	switch (window.menu) { // set in page.jsp - which is set by page
-							// controller. Slick way to push Java into JS
+	// controller. Slick way to push Java into JS
 	case 'About Us':
 		$('#about').addClass('active');
 		break;
@@ -10,29 +10,29 @@ $(function() {
 		break;
 	case 'All Products':
 		$('#listProducts').addClass('active');
-		break;	
+		break;
 	default:
 		if (window.menu == "Home") {
 			break;
-	    }
-		$('#listProducts').addClass('active');	
-		$('#a_' + menu).addClass('active');  // highlights product in sidebar.jsp
+		}
+		$('#listProducts').addClass('active');
+		$('#a_' + menu).addClass('active'); // highlights product in sidebar.jsp
 		break;
 	}
-	
+
 	// $ in $table because THIS is jQuery!!
-	
+
 	var $table = $('#productListTable');
-	
-	 // Execute the code below only where we have this table.
-	 //  Trick to check if q JS file is included which defines a table
-	 //
+
+	// Execute the code below only where we have this table.
+	// Trick to check if q JS file is included which defines a table
+	//
 	if ($table.length) {
 		// console.log('Inside the table!');
-		
+
 		var jsonUrl = '';
 		// categoryId is The UUID of a Category domain object in the DataBase
-		if (window.categoryId == '') {  
+		if (window.categoryId == '') {
 			// Create a URL to make a REST call to grab a JSON list of all
 			// products
 			jsonUrl = window.contextRoot + '/json/data/all/products';
@@ -40,62 +40,74 @@ $(function() {
 
 			// Create a URL to make a REST call to grab a JSON list of all
 			// products
-		  	 // We have a categoryId, so build up the URL for the REST controller 
-		  	 // to jsonDataController.
-		  	
+			// We have a categoryId, so build up the URL for the REST controller
+			// to jsonDataController.
+
 			jsonUrl = window.contextRoot + '/json/data/category/'
 					+ window.categoryId + '/products';
 
 		}
-		
-		 //  $table is a variable holding an element with id 'productListTable'
+
+		// $table is a variable holding an element with id 'productListTable'
 		// In JavaScript we can just "tack on" a DataTable object to any other
 		// object
-		 //  Pass in the table data using a JSON constructor.
-		 
-		$table.DataTable( { 
-			
-			// Specify the lengthMenu property of a jQuery DataTable
-			//  This is a drop down data set.  
-			//  First collection is values of each drop down row.
-			//  Second collection is the label for each drop down row
-			   
-					lengthMenu : [ [ 3, 5, 10, -1 ],
-							[ '3', '5', '10', 'ALL' ] ],
-			pageLength: 5, // Show 5  records per page
-			ajax: {
-				url: jsonUrl,
-				dataSrc: ''
+		// Pass in the table data using a JSON constructor.
+
+		$table
+				.DataTable({
+
+					// Specify the lengthMenu property of a jQuery DataTable
+					// This is a drop down data set.
+					// First collection is values of each drop down row.
+					// Second collection is the label for each drop down row
+
+					lengthMenu : [ [ 3, 5, 10, -1 ], [ '3', '5', '10', 'ALL' ] ],
+					pageLength : 5, // Show 5 records per page
+					ajax : {
+						url : jsonUrl,
+						dataSrc : ''
 					}, // based on the name/value pairs from REST JSON return
-						// data from AJAX
+					// data from AJAX
 					columns : [
 							{ // image
-								data : 'code', // the random codes - apply to image name								
+								data : 'code', // the random codes - apply to
+												// image name
 								mRender : function(data, type, row) {
-									var str = '<img src="' + window.contextRoot + '/resources/images/' + data + '.jpg" class="dataTableImg"></img>';
+									var str = '<img src="'
+											+ window.contextRoot
+											+ '/resources/images/'
+											+ data
+											+ '.jpg" class="dataTableImg"></img>';
 									return str;
 								}
-			},
-				 {
-					 data: 'name'
-				 },
-				 {
-					 data: 'brand'
-				 },
-				 {
+							},
+							{
+								data : 'name'
+							},
+							{
+								data : 'brand'
+							},
+							{
 								data : 'unitPrice',
 								mRender : function(data, type, row) {
 									return '$' + data;
 								}
-				 },
-				 {
-					 data: 'quantity'
+							},
+							{
+								data : 'quantity',
+								mRender : function(data, type, row) {
+
+									if (data < 1) {
+										return '<span style="color:red">Out of Stock.</span>';
+									}
+									return data;
+								}
 							},
 							{
 								data : 'id',
 								bSortable : false, // Don't show the up/down
-													// sorting arrows for this
-													// column
+								// sorting arrows for this
+								// column
 								mRender : function(data, type, row) {
 									// Instead of hyperlinks, show buttons
 									// styled from bootstrap (glyphicon).
@@ -106,19 +118,23 @@ $(function() {
 											+ '/show/'
 											+ data
 											+ '/product" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"><span></a>&#160;';
-									str += '<a href="'
-											+ window.contextRoot
-											+ '/cart/add/'
-											+ data
-											+ '/product" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"><span></a>';
 
+									if (row.quantity < 1) {
+										str += '<a href="javascript:void(0)" class="btn btn-success disabled"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
+									} else {
+										str += '<a href="'
+												+ window.contextRoot
+												+ '/cart/add/'
+												+ data
+												+ '/product" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
+									}
 									return str;
 								}
-				 }
-		
-			]
-		
-		});
+							}
+
+					]
+
+				});
 	}
-	
+
 });
