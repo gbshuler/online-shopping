@@ -3,6 +3,8 @@ Stack for onlineshopping project
 FRONT END
 --------------------------------------------
 Spring MVC
+Spring Security
+Spring Web Flow
 JSP
 jQuery
 jQuery DataTables 1.10.15
