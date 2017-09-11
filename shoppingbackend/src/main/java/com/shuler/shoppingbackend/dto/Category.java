@@ -20,8 +20,7 @@ public class Category {
 
 	@Override
 	public String toString() {
-		return "Category [id=" + id + ", name=" + name + ", description=" + description + ", imageURL=" + imageURL
-				+ ", active=" + active + "]";
+		return name;
 	}
 
 	public int getId() {
