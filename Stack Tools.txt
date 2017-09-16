@@ -4,6 +4,7 @@ FRONT END
 --------------------------------------------
 Spring MVC
 Spring Security
+Spring Forms
 Spring Web Flow
 JSP
 jQuery

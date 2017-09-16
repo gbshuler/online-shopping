@@ -7,6 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -18,11 +23,21 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String code;
+
+	@NotBlank(message="Please enter the Product Name")
+    @Size(max = 10, message = "User Name should not be more than 10 characters")
 	private String name;
+
+	@NotBlank(message="Please enter the Brand Name")
 	private String brand;
+
 	@JsonIgnore
+	@NotBlank(message="Please enter the description for the Product")
 	private String description;
-	@Column(name = "unit_price")
+	
+	@Column(name = "unit_price")	
+	@Min(value=1, message="The minimum unit price is 1")
+	@Max(value=2, message="The maximum unit price is 2")
 	private double unitPrice;
 	private int quantity;
 	@Column(name = "is_active")
