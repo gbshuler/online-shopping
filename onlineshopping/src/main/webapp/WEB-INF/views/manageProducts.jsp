@@ -21,9 +21,14 @@
      <!-- SPRING FORM ELEMENTS requires a modelAttribute to link form to a domain 
 						 in our case this form maps to Product through Spring Form modelAttribute
 						 Gotcha!  Need to add unused Product attributes as hidden fields (or they
-						 will always be default values!  -->
+						 will always be default values!  
+          Note:  Most Spring Form forms use commandName attribute to bind to a server side object.
+          -->
      <sf:form class="form-horizontal" modelAttribute="product"
-      action="${contextRoot}/manage/products" method="POST">
+      action="${contextRoot}/manage/products" 
+      method="POST"
+      enctype="multipart/form-data"
+      >
 
       <div class="form-group">
 
@@ -68,7 +73,7 @@
 
        <div class="col-md-8">
 
-        <sf:input type="text" path="unitPrice" id="unitPrice" placeholder="Unit Price"
+        <sf:input type="number" path="unitPrice" id="unitPrice" placeholder="Unit Price"
          class="form-control"></sf:input>
         <sf:errors path="unitPrice" cssClass="help-block" element="em" />
 
@@ -83,6 +88,13 @@
         <sf:input type="number" path="quantity" id="quantity"
          placeholder="Quantity Available" class="form-control"></sf:input>
        </div>
+      </div>
+      <!--  File element for loading an image file -->
+      <div class="form-group">
+         <label class="control-label col-md-4" for="file">Select an Image: </label>
+         <div class="col-md-8">
+            <sf:input type="file" path="file" id="file" class="form-control"></sf:input>
+         </div>
       </div>
       <div class="form-group">
 

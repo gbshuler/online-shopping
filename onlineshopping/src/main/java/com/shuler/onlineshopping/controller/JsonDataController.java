@@ -12,23 +12,22 @@ import com.shuler.shoppingbackend.dao.ProductDAO;
 import com.shuler.shoppingbackend.dto.Product;
 
 /**
- * Top level context for all requests in class 
  * (All requests must have /json/data prepended to them)
  * Request mappings will be intercepted for these URLS:
  * /json/data/all/products
  * /json/data/category/${id}/products
- * Example (will return a list of Product objects for Category 7 -- using ResponseBock to package into JSON:
+ * Example (will return a list of Product objects for Category 7 -- using ResponseBack to package into JSON:
  * /json/data/category/7/products
  */
 @Controller
-@RequestMapping("/json/data")
+@RequestMapping("/json/data") // Top level context for all requests in class
 public class JsonDataController {
 	@Autowired
 	private ProductDAO productDAO;
 
 	/**
 	 * No more ModelAndView.  Get as JSON data
-	 * The ResponseBody will cause a classpath lookup for an a
+	 * The ResponseBody annotation will cause a classpath lookup for an a
 	 * appropriate data converter (should be JSON)
 	 * @return List of all Product's
 	 */

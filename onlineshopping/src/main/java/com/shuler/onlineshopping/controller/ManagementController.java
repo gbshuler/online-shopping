@@ -2,6 +2,7 @@ package com.shuler.onlineshopping.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.shuler.onlineshopping.util.FileUploadUtility;
 import com.shuler.shoppingbackend.dao.CategoryDAO;
 import com.shuler.shoppingbackend.dao.ProductDAO;
 import com.shuler.shoppingbackend.dto.Category;
@@ -54,12 +56,12 @@ public class ManagementController {
 	 * Create a Product using POST On webapp we see
 	 * <sf:form action="$contextRoot}/manage/products" method="POST"/>
 	 * 
-	 * @param modifiedProduct
+	 * @param mProduct
 	 * @return
 	 */
-	@RequestMapping(value = "/products", method = RequestMethod.POST)
-	public String handleProductSubmission(
-			@Valid @ModelAttribute("product") Product modifiedProduct, BindingResult results,  Model model) {
+	@RequestMapping(value="/products", method=RequestMethod.POST)
+	public String handleProductSubmission(@Valid @ModelAttribute("product") Product mProduct, BindingResult results, Model model,
+			HttpServletRequest request) {
 
 		if (results.hasErrors()) {
 			model.addAttribute("userClickManageProducts", true);
@@ -68,7 +70,14 @@ public class ManagementController {
 			return "page";
 		} 
 
-		productDAO.add(modifiedProduct);
+		productDAO.add(mProduct);
+		
+		// Load an image file (if there is a file string)
+		String fileName = mProduct.getFile().getOriginalFilename();
+		if (!(fileName == null || fileName.isEmpty())) {
+			FileUploadUtility.uploadFile(request, mProduct.getFile(), mProduct.getCode());
+		}
+		
 		// ! Pass the ball to the get request handler (above)
 		// showManageProducts()
 		return "redirect:/manage/products?operation=product";  // go back around from POST(this method) to GET

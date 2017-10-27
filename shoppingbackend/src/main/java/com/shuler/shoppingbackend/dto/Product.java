@@ -7,11 +7,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -25,7 +27,6 @@ public class Product {
 	private String code;
 
 	@NotBlank(message="Please enter the Product Name")
-    @Size(max = 10, message = "User Name should not be more than 10 characters")
 	private String name;
 
 	@NotBlank(message="Please enter the Brand Name")
@@ -36,8 +37,7 @@ public class Product {
 	private String description;
 	
 	@Column(name = "unit_price")	
-	@Min(value=1, message="The minimum unit price is 1")
-	@Max(value=2, message="The maximum unit price is 2")
+	@Min(value=1,message="The price cannot be less than 1")
 	private double unitPrice;
 	private int quantity;
 	@Column(name = "is_active")
@@ -52,6 +52,17 @@ public class Product {
 	private int purchases;
 	private int views;
 	
+	@Transient
+	private MultipartFile file;
+	
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+
 	public Product() {
 		// Voodoo code to generate a random ID number
 		this.code = "PRD" + UUID.randomUUID().toString().substring(26).toUpperCase();

@@ -83,6 +83,11 @@ public class PageController {
 		ModelAndView mv = new ModelAndView("page"); // No model for this
 													// constructor signature
 		// Lost 3 hours because I didn't add this line!
+		/*
+		 *  AOP will intercept this because the URL has "all/products"
+		 *  Our Jackson JsonDataController "listens" for REST calls to "all/products"
+		 *  Jackson marks these methods with @ResponseBody
+		 */
 		mv.addObject("categories", categoryDAO.list());
 		// Now we create the model!
 		// Add an attribute to the model. name and value be bound to the view
