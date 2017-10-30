@@ -3,15 +3,7 @@
 	<div class="row">
 		<!-- Would be to display sidebar -->
 		<div class="col-md-3">
-			<!--  BEGIN ssidebar.jsp -->
-			<p class="lead">Shop Name</p>
-			<div class="list-group">
-				<c:forEach items="${categories}" var="category">
-					<a href="${contextRoot}/show/category/${category.id}/products"
-						class="list-group-item" id="a_${category.name}">${category.name}</a>
-				</c:forEach>
-			</div>
-			<!--  END sidebar.jsp -->
+            <%@include file="sidebar.jsp"%>
 		</div>
 		<!-- to display the actual products -->
 		<div class="col-md-9">

@@ -64,6 +64,9 @@
 			<c:if test="${userClickHome == true }">
 				<%@include file="home.jsp"%>
 			</c:if>
+            <c:if test="${userClickTestingHarness == true }">
+                 <%@include file="home.jsp"%>
+            </c:if>
 			<!--  User clicked About -->
 			<c:if test="${userClickAbout == true }">
 				<%@include file="about.jsp"%>

@@ -41,7 +41,6 @@ public class PageController {
 		// Create a little flag the JSP can look for as a clue where this result
 		// came from
 		mv.addObject("userClickHome", true);
-		mv.addObject("userClickHome", true);
 		return mv;
 	}
 
@@ -142,5 +141,18 @@ public class PageController {
 		
 		mv.addObject("userClickShowProduct",true);
 		return mv;				
+	}
+	
+	@RequestMapping(value = { "/test" })
+	// Spring MVC class with Model and View
+	public ModelAndView testJig() {
+		ModelAndView mv = new ModelAndView("restTest"); 
+
+		// Now we create the model!
+		// Add an attribute to the model. "greeting" will be bound to the view
+		// ({greeting} JSP
+		mv.addObject("title", "REST Test Harness");
+		mv.addObject("userClickTestingHarness",true);
+		return mv;
 	}
 }
