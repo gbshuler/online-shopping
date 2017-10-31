@@ -29,7 +29,11 @@
 
 <!-- Bootstrap Core JavaScript -->
 <script src="${js}/bootstrap.min.js"></script>
-
+<style>
+.bs-example {
+	margin: 20px;
+}
+</style>
 <!-- AnularJS 1.6 Core JavaScript -->
 <script src="${angular}/angular.min.js"></script>
 <script src="${angular}/restTester.js"></script>
@@ -56,17 +60,44 @@
 
                         <h1>REST Test Harness for Online Shopping App</h1>
                         <hr />
-                        
+
                     </div>
-                    <div class="col-xs-12">{{3 + 4}}</div>
-                    <div ng-app="resttestapp" ng-controller="RestTestController">
-                        <h1>{{greeting}}</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <%@include file="footer.jsp"%>
-    </div>
+
+                    <div class="bs-example" ng-app="resttestapp"
+                        ng-controller="RestTestController">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>id</th>
+                                    <th>code</th>
+                                    <th>name</th>
+                                    <th>brand</th>
+                                    <th>unitPrice</th>
+                                    <th>quantity</th>
+                                    <th>purchases</th>
+                                    <th>views</th>
+                                    <th>file</th>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="product in products">
+                                    <td>{{product.id}}</td>
+                                    <td>{{product.code}}</td>
+                                    <td>{{product.name}}</td>
+                                    <td>{{product.brand}}</td>
+                                    <td>{{product.unitPrice | currency:"USD$ "}}</td>
+                                    <td>{{product.quantity}}</td>
+                                    <td>{{product.purchases}}</td>
+                                    <td>{{product.views}}</td>
+                                    <td>{{product.file}}</td>
+                                </tr>
+                            </tbody>
+                            </div>
+                            </div>
+                            </div>
+                            <%@include file="footer.jsp"%>
+                            </div>
 </body>
 
 </html>
